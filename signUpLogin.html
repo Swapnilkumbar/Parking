@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/signuplogin.css"> 
+<title>WePark Login SignUp</title>
+
+</head>
+<body>
+
+<div class="container" id="container">
+
+	<div class="form-container sign-up-container">
+		<form action="jsp\otpGen.jsp" method="post">
+			<h1>Create Account</h1>			
+			<input type="text" placeholder="Name" name="name" required="required"/>
+			<input type="email" placeholder="Email" name="email" required="required"/>
+			<input type="password" placeholder="Password" id="password" name="password" required="required"/>
+			<label onclick="showPassword()" style="font-size: 10px;">show/hide password</label><br>
+			<button>Sign Up</button>
+		</form>
+	</div>
+	
+	<div class="form-container sign-in-container">
+		<form action="jsp\login.jsp" method="post">
+			<h1>Sign in</h1>
+			
+			<input type="email" placeholder="Email" name="Semail" required="required"/>
+			<input type="password" placeholder="Password" name="Spassword" required="required"/>
+			<a href="forgotpassword.jsp">Forgot your password?</a>
+			<button>Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To start with WePark please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Create a free account to start using WePark</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+</script>
+
+<script type="text/javascript">
+function showPassword() {
+	  var x = document.getElementById("password");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+	}
+</script>
+
+</body>
+</html>
